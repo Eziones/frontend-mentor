@@ -1,11 +1,15 @@
-<script setup></script>
+<script setup>
+import ProjectsList from './projects/ProjectsList.vue';
+import TheHeader from './UI/TheHeader.vue';
+
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+    <ProjectsList></ProjectsList>
 </template>
 
-<style scoped></style>
+<style>
+  * {
+    font-family: 'Outfit', Arial, Helvetica, sans-serif;
+  }
+</style>
