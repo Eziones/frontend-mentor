@@ -10,6 +10,7 @@ export default defineConfig({
     vue(),
     vueDevTools(),
   ],
+  base: '/frontend-mentor/',
   publicDir: 'public',
   resolve: {
     alias: {

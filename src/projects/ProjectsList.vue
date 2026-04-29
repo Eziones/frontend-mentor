@@ -1,11 +1,9 @@
 <template>
   <div class="hub">
-    <h1>Frontend Mentor Hub</h1>
-    <p class="subtitle">{{ projects.length }} projets complétés</p>
-
     <div class="grid">
-      <a v-for="p in projects" :key="p.slug" :href="`/projects/${p.slug}/index.html`" target="_blank" class="card">
-        <img :src="`/projects/${p.slug}/${p.preview}`" :alt="p.title" />
+      <a v-for="p in projects" :key="p.slug" :href="`${baseUrl}projects/${p.slug}/index.html`" target="_blank"
+        class="card">
+        <img :src="`${baseUrl}projects/${p.slug}/${p.preview}`" :alt="p.title" />
 
         <div class="card-body">
           <h2>{{ p.title }}</h2>
@@ -23,29 +21,13 @@
 
 <script>
 export default {
+  props: ['projects'],
   data() {
     return {
-      projects: null
+      baseUrl: import.meta.env.BASE_URL
     }
-  },
-  created() {
-    const metas = import.meta.glob('/projects/*/meta.js', { eager: true });
-    this.projects = Object.entries(metas).map(([path, mod]) => ({
-      slug: path.split('/')[2],
-      ...mod.default
-    }));
-    console.log(this.projects);
   }
 };
-// const metas = import.meta.glob('/public/projects/*/metas.js', { eager: true });
-
-// const projects = Object.entries(metas).map(([path, mod]) => ({
-//   slug: path.split('/')[2],
-//   ...mod.default
-// }));
-
-
-// console.log(projects);
 </script>
 
 <style scoped>
@@ -53,18 +35,6 @@ export default {
   padding: 2rem 1.5rem;
   max-width: 1100px;
   margin: 0 auto;
-}
-
-h1 {
-  font-size: 1.75rem;
-  font-weight: 500;
-  margin-bottom: 0.25rem;
-}
-
-.subtitle {
-  color: #888;
-  font-size: 0.9rem;
-  margin-bottom: 2rem;
 }
 
 .grid {
