@@ -1,0 +1,178 @@
+:root {
+  --orange: hsl(25, 97%, 53%);
+  --white: hsl(0, 100%, 100%);
+  --light-grey: hsl(217, 12%, 63%);
+  --grey: hsl(213, 19%, 18%);
+  --grey-element: hsl(213, 23%, 23%);
+  --grey-gradient: hsl(213, 12%, 12%);
+  --black: hsl(216, 12%, 8%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Overpass";
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--white);
+
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  max-width: 375px;
+  border: none;
+  border-radius: 1.5rem;
+  background: linear-gradient(var(--grey), var(--grey-gradient));
+  padding: 1.5rem;
+  min-height: 400px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rating-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.circle-border {
+  background-color: var(--grey-element);
+  border-radius: 50%;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rating-container h1,
+.thank-you-container h1 {
+  font-weight: 400;
+  letter-spacing: -.1px;
+  font-size: 1.75rem;
+}
+
+.rating-container p,
+.thank-you-container p {
+  font-size: 15px;
+  color: var(--light-grey);
+  font-weight: 500;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons-container button {
+  color: var(--light-grey);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.buttons-container button.selected {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.buttons-container button:hover:not(.selected) {
+  background-color: var(--orange);
+  color: var(--black);
+}
+
+.submit-button {
+  background-color: var(--orange);
+  border: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  border-radius: 2rem;
+  padding: 1rem;
+
+  cursor: pointer;
+}
+
+.submit-button:disabled {
+  cursor: default;
+}
+
+.submit-button:hover:not(:disabled) {
+  background-color: var(--white);
+}
+
+.thank-you-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.thank-you-container img {
+  width: 150px;
+}
+
+p.rating-display {
+  color: var(--orange);
+  padding: .35rem 1.25rem;
+  background-color: var(--grey);
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: .5px;
+  border-radius: 1rem;
+}
+
+.message h1 {
+  margin-bottom: 1rem;
+}
+
+.rating-container,
+.thank-you-container {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hidden {
+  opacity: 0;
+  transform: scale(0.98);
+  display: none;
+}
+
+.attribution {
+  font-size: 0.6875rem;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: var(--white);
+  padding: 2rem;
+}
+
+.attribution a {
+  color: var(--light-grey);
+}
+
+
+@media(max-width: 375px) {
+  .app {
+    max-width: 350px;
+  }
+}
