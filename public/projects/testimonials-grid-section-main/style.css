@@ -1,0 +1,154 @@
+:root {
+  --purple-50: hsl(260, 100%, 95%);
+  --purple-300: hsl(264, 82%, 80%);
+  --purple-500: hsl(263, 55%, 52%);
+  --white: hsl(0, 0%, 100%);
+
+  --grey-100: hsl(214, 17%, 92%);
+  --grey-200: hsl(0, 0%, 81%);
+  --grey-400: hsl(224, 10%, 45%);
+  --grey-500: hsl(217, 19%, 35%);
+
+  --dark-blue: hsl(219, 29%, 14%);
+  --black: hsl(0, 0%, 7%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Barlow Semi Condensed", Arial, Helvetica, sans-serif;
+  width: 100%;
+  min-height: 100vh;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+
+  background-color: var(--grey-100);
+}
+
+.container {
+  width: min(90%, 1400px);
+  padding: 4rem clamp(1rem, 4vw, 3rem);
+  margin: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.grid-item {
+  border-radius: .5rem;
+  padding: 2rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.col-2 {
+  grid-column: span 2;
+}
+
+.row-2 {
+  grid-row: span 2;
+}
+
+.item-purple {
+  background-color: var(--purple-500);
+  color: var(--white);
+}
+
+.item-grey {
+  background-color: var(--grey-500);
+  color: var(--white);
+}
+
+.item-light {
+  background-color: var(--white);
+  color: var(--grey-400);
+}
+
+.item-dark {
+  background-color: var(--dark-blue);
+  color: var(--grey-200);
+}
+
+.author-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.author {
+  font-weight: 600;
+}
+
+.author-container img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.purple-border {
+  border: 2px solid var(--purple-300);
+}
+
+.grey-border {
+  border: 2px solid var(--grey-200);
+}
+
+.grid-item h2 {
+  letter-spacing: .1px;
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+
+.attribution {
+  font-size: 0.6875rem;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media(max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .col-2 {
+    grid-column: initial;
+  }
+
+  .attribution {
+    display: none;
+  }
+}
+
+@media(max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .col-2 {
+    grid-column: initial;
+  }
+
+  .attribution {
+    display: none;
+  }
+}
